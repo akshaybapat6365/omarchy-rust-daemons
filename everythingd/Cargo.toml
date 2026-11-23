@@ -1,0 +1,11 @@
+[package]
+name = "everythingd"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+hmac = "0.13"
+libc = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.11"

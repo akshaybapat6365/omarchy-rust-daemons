@@ -1,0 +1,5 @@
+# Portable workspace build settings (compiles cleanly on any Linux x86_64 or aarch64 CPU).
+# For host-specific SIMD/ISA tuning (AVX2/FMA/NEON), pass `--native` to ./install.sh
+# or build with: RUSTFLAGS="-C target-cpu=native" cargo build --release
+[build]
+jobs = 4
