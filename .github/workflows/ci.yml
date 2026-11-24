@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Shell syntax checks
+        run: bash -n install.sh uninstall.sh PKGBUILD
+      - name: Build release workspace & smoke test daemons
+        run: |
+          cargo build --release --workspace
+          ./target/release/vitalsd --once | python3 -c "import json,sys; d=json.load(sys.stdin); assert 'cpu' in d"
+          ./target/release/screenshotd list | python3 -c "import json,sys; json.load(sys.stdin)"
+          ./target/release/everythingd --help >/dev/null
