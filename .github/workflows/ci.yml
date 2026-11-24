@@ -18,5 +18,6 @@ jobs:
         run: |
           cargo build --release --workspace
           ./target/release/vitalsd --once | python3 -c "import json,sys; d=json.load(sys.stdin); assert 'cpu' in d"
-          ./target/release/screenshotd list | python3 -c "import json,sys; json.load(sys.stdin)"
+          mkdir -p /tmp/ci-screenshots
+          OMARCHY_SCREENSHOT_DIR=/tmp/ci-screenshots ./target/release/screenshotd list | python3 -c "import json,sys; json.load(sys.stdin)"
           ./target/release/everythingd --help >/dev/null
