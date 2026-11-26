@@ -3,7 +3,7 @@
 Three single-binary, drop-in **native Rust desktop daemons** replacing slow Python helpers across [Omarchy Linux](https://omarchy.org) shell popups and launchers — delivering **37× to 481× lower latency**, **15.8× lower RAM usage**, and **zero accidental NVIDIA dGPU wakeups** while preserving exact JSON / NDJSON stdio IPC contracts.
 
 <p align="center">
-  <img src="assets/benchmarks.png" alt="Legacy Python vs Native Rust Benchmarks for vitalsd, screenshotd, and everythingd" width="100%">
+  <a href="assets/benchmarks.png"><img src="assets/benchmarks.png" alt="Legacy Python vs Native Rust Benchmarks for vitalsd, screenshotd, and everythingd (4K)" width="100%"></a>
 </p>
 
 ## Workspace Members
